@@ -1,25 +1,25 @@
 <?php
-function vbs_tokenize() {
-    $exps = array();
+function vbs_tokenize($line) {
+    $tokens = array();
 
     $symbols = array(
         '^', '-', '*', '/', '\\', '+', '&',
         '>', '<', , '=', '(', ')', ',', '%', ' '
     );
-    $chars = str_split($str);
-    $exp = '';
+    $chars = str_split($line);
+    $token = '';
     foreach($chars as $char) {
         if(in_array($char, $symbols)) {
-            $exp = trim($exp);
-            if($exp != '') {
-                $exps[] = $exp;
+            $token = trim($token);
+            if($token != '') {
+                $tokens[] = $token;
             }
-            $exp = '';
-            $exps[] = $char;
+            $token = '';
+            $tokens[] = $char;
         } else {
-            $exp .= $char;
+            $token .= $char;
         }
     }
 
-    return $exps;
+    return $tokens;
 }
