@@ -12,7 +12,7 @@ function vbs_tokenize() {
         if(in_array($char, $symbols)) {
             $exp = trim($exp);
             if($exp != '') {
-                $exps[] = trim($exp);
+                $exps[] = $exp;
             }
             $exp = '';
             $exps[] = $char;
